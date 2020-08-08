@@ -4,7 +4,7 @@
   "description": "A simple chatbot built using NodeJS for AdaKerja Part-Time Application",
   "main": "index.ts",
   "scripts": {
-    "tslint": "tslint --project .tsconfig.json",
+    "tslint": "tslint --project tsconfig.json",
     "start": "node ./dist/index.js",
     "start:dev": "nodemon",
     "build": "tsc",
@@ -16,19 +16,22 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run tslint",
+      "pre-commit": "npm run tslint"
     }
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Gardahadi",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Gardahadi/askwidya/issues"
   },
   "homepage": "https://github.com/Gardahadi/askwidya#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "pg": "^8.3.0",
+    "typeorm": "^0.2.25"
   },
   "devDependencies": {
     "@types/express": "^4.17.7",

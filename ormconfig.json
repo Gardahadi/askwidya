@@ -1,0 +1,11 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3306,
+  "username": "mysql",
+  "password": "mysql",
+  "database": "askwidya",
+  "synchronize": true,
+  "logging": true,
+  "entities": ["src/entities/**/*.ts", "dist/entities/**/*.js"]
+}
