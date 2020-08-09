@@ -27,10 +27,11 @@
   },
   "homepage": "https://github.com/Gardahadi/askwidya#readme",
   "dependencies": {
+    "config": "^3.3.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
-    "pg": "^8.3.0",
+    "node-fetch": "^2.6.0",
     "typeorm": "^0.2.25"
   },
   "devDependencies": {

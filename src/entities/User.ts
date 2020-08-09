@@ -6,11 +6,11 @@ export class User {
   id: number;
 
   @Column()
-  userName: string;
+  psid: string;
 
-  @Column()
+  @Column({ nullable: true })
   firstName: string;
 
-  @Column()
+  @Column({ nullable: true })
   birthDate: Date;
 }

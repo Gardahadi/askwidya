@@ -1,51 +1,40 @@
-import { Request, Response } from 'express';
 import { getManager } from 'typeorm';
 import { Message } from '../entities/Message';
 
 export class MessageController {
   // Method to get All Messages
-  async getAll(_request: Request, response: Response) {
+  async getAll() {
     const messageRepository = getManager().getRepository(Message);
 
     const messages = await messageRepository.find();
 
-    response.send(messages);
+    return messages;
   }
 
   // Method to get message by id
-  async getById(request: Request, response: Response) {
+  async getById(id) {
     const messageRepository = getManager().getRepository(Message);
-
-    const message = await messageRepository.findOne(request.params.id);
-
-    // if message was not found return 404 to the client
-    if (!message) {
-      response.status(404);
-      response.end();
-      return;
-    }
-
-    response.send(message);
+    const message = await messageRepository.findOne(id);
+    console.log(message);
+    return message;
   }
 
-  async postMessage(request: Request, response: Response) {
+  // Method to post new message
+  async postMessage(body) {
     const messageRepository = getManager().getRepository(Message);
-    const newMessage = messageRepository.create(request.body);
 
+    const newMessage = messageRepository.create(body);
     await messageRepository.save(newMessage);
 
-    response.send(newMessage);
+    return newMessage;
   }
 
-  async deleteMessage(request: Request, response: Response) {
+  // Method to delete message
+  async deleteMessage(id) {
     const messageRepository = getManager().getRepository(Message);
-    const deleteMessage = await messageRepository.delete(request.params.id);
-    if (deleteMessage.affected) {
-      response.send(deleteMessage);
-    } else {
-      response.status(404);
-      response.end();
-      return;
-    }
+
+    const deleteMessage = messageRepository.delete(id);
+
+    return deleteMessage;
   }
 }

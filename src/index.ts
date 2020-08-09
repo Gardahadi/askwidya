@@ -14,20 +14,13 @@ createConnection()
 
     // register all application routes
     Routes.forEach((route) => {
-      app[route.method](route.path, (request: Request, response: Response, next: any) => {
-        route
-          .action(request, response)
-          .then(() => next)
-          .catch((err) => next(err));
+      app[route.method](route.path, async (request: Request, response: Response, next: any) => {
+        await route.action(request, response);
+        next();
       });
     });
 
     const port: number = Number(process.env.PORT) || 3000;
-
-    const startServer = async () => {
-      await app.listen(port);
-    };
-
-    startServer();
+    app.listen(port);
   })
   .catch((error) => console.error('TypeORM connection error: ', error));
