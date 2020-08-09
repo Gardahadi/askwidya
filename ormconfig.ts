@@ -8,6 +8,6 @@ export = {
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DATABASE,
   synchronize: true,
-  logging: true,
+  logging: ["Error"],
   entities: ["src/entities/*.ts", "dist/entities/*.js"],
 };

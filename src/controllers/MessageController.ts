@@ -1,5 +1,5 @@
-import { getManager } from 'typeorm';
-import { Message } from '../entities/Message';
+import { getManager } from "typeorm";
+import { Message } from "../entities/Message";
 
 export class MessageController {
   // Method to get All Messages
@@ -20,14 +20,14 @@ export class MessageController {
   }
 
   // Method to post new message
-  async postMessage(body) {
+  postMessage = async (body) => {
     const messageRepository = getManager().getRepository(Message);
 
     const newMessage = messageRepository.create(body);
     await messageRepository.save(newMessage);
 
     return newMessage;
-  }
+  };
 
   // Method to delete message
   async deleteMessage(id) {
