@@ -23,13 +23,13 @@ export const WIDYA_REPLIES = [
   },
 ];
 
-const QUICK_REPLIES = [
-  {
-    title: "Yes",
-    payload: "reply_yes",
-  },
-  {
-    title: "No",
-    payload: "reply_no",
-  },
-];
+// const QUICK_REPLIES = [
+//   {
+//     title: "Yes",
+//     payload: "reply_yes",
+//   },
+//   {
+//     title: "No",
+//     payload: "reply_no",
+//   },
+// ];

@@ -1,5 +1,5 @@
 import { UserController } from "./UserController";
-import { WIDYA_REPLIES } from "../models/payload";
+import { WIDYA_REPLIES } from "../values/payload";
 
 const userController = new UserController();
 

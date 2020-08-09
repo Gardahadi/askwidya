@@ -25,10 +25,18 @@ A simple Facebook Messenger Chatbot with very basic functionality built using Ty
 - Prettier : Code Formatter
 - eslint : Code Linter
 - ngrok : Used for HTTPS Tunneling
-- jest : unit testing library (in progress)
-- supertest : api testing library (in progress)
+- jest : unit testing library
+- supertest : api testing library
 
 ## Setup and Deployment
+
+### Code Testing
+
+To test app use the following command
+
+```
+npm run test
+```
 
 ### Manual Setup
 
