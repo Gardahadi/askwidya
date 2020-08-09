@@ -6,8 +6,8 @@ export = {
   port: 3306,
   username: process.env.MYSQL_USERNAME,
   password: process.env.MYSQL_PASSWORD,
-  database: "askwidya",
+  database: process.env.MYSQL_DATABASE,
   synchronize: true,
-  logging: ["error"],
+  logging: true,
   entities: ["src/entities/*.ts", "dist/entities/*.js"],
 };

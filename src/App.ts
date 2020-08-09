@@ -10,6 +10,7 @@ export class App {
     this.express = express();
 
     this.express.use(bodyParser.json());
+    this.express.use(bodyParser.urlencoded({ extended: false }));
 
     // register all application routes
     Routes.forEach((route) => {

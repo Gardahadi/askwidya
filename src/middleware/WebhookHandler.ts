@@ -1,7 +1,7 @@
 import { BotController } from "../controllers/BotController";
 
 const botController = new BotController();
-export const webhookHandler = (req, res) => {
+export const webhookHandler = async (req, res) => {
   const body = req.body;
   if (body.object === "page") {
     body.entry.forEach(async (entry) => {

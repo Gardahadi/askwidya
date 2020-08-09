@@ -1,18 +1,19 @@
-import { getManager } from 'typeorm';
-import { User } from '../entities/User';
+import { getManager } from "typeorm";
+import { User } from "../entities/User";
 
 export class UserController {
-  async isUserExist(userPsid) {
+  isUserExist = async (userPsid) => {
     const userRepository = getManager().getRepository(User);
-    const user = userRepository.findOne({ psid: userPsid });
+    const user = await userRepository.findOne({ psid: userPsid });
+    console.log(user);
     if (user) {
       return true;
     } else {
       return false;
     }
-  }
+  };
 
-  async isFirstnameExist(userPsid) {
+  isFirstnameExist = async (userPsid) => {
     const userRepository = getManager().getRepository(User);
     const user = await userRepository.findOne({ psid: userPsid });
     if (user?.firstName) {
@@ -20,41 +21,65 @@ export class UserController {
     } else {
       return false;
     }
-  }
+  };
 
-  async isBirthdayExist(userPsid) {
+  isBirthdayExist = async (userPsid) => {
     const userRepository = getManager().getRepository(User);
     const user = await userRepository.findOne({ psid: userPsid });
     if (user?.birthDate) {
+      console.log("birthday exist");
       return true;
     }
     return false;
-  }
+  };
 
-  async saveNewUser(body) {
+  saveNewUser = async (body) => {
     const userRepository = getManager().getRepository(User);
-    await userRepository.save(body);
-  }
+    const save = await userRepository.save(body);
+    if (save) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
-  async getById(id) {
+  getById = async (id) => {
     const messageRepository = getManager().getRepository(User);
     const user = await messageRepository.findOne({ psid: id });
     console.log(user?.birthDate);
 
     return user;
-  }
+  };
 
-  async saveFirstName(userPsid: string, firstname) {
+  getBirthday = async (id) => {
+    const messageRepository = getManager().getRepository(User);
+    const user = await messageRepository.findOne({ psid: id });
+    if (user) {
+      return user.birthDate;
+    } else {
+      throw new Error("Cant find date");
+    }
+  };
+
+  saveFirstName = async (userPsid: string, userFirstame) => {
     const userRepository = getManager().getRepository(User);
     if (this.isUserExist(userPsid)) {
-      await userRepository.update(userPsid, { firstName: firstname });
+      const update = await userRepository.update({ psid: userPsid }, { firstName: userFirstame });
+      if (update) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
     }
-  }
+  };
 
-  async saveBirthday(userPsid: string, birthday) {
+  saveBirthday = async (userPsid: string, birthday) => {
     const userRepository = getManager().getRepository(User);
+    console.log("DEBUG" + birthday);
     if (this.isUserExist(userPsid)) {
-      await userRepository.update(userPsid, { birthDate: birthday });
+      await userRepository.update({ psid: userPsid }, { birthDate: birthday });
     }
-  }
+  };
 }

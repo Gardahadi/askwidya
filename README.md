@@ -42,23 +42,24 @@ npm run test
 
 1. Clone or download the contents of this repository
 2. Install ngrok, Official tutorial can be found [here](https://ngrok.com/)
-3. Install Dependencies using :
+3. Create a mysql database with any name
+4. Install Dependencies using :
    ```
    npm -i
    ```
-4. Create file with the name `.env` with the contents following the format in `.env.example`
-5. Set up Facebook Page and connect Messenger webhook to page, official tutorial can be found [here](https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup)
-6. Run app in development mode using :
+5. Create file with the name `.env` with the contents following the format in `.env.example`
+6. Set up Facebook Page and connect Messenger webhook to page, official tutorial can be found [here](https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup)
+7. Run app in development mode using :
 
    ```
    npm run start:dev
    ```
 
-7. Expose endpoint using ngrok with the following command :
+8. Expose endpoint using ngrok with the following command :
    ```
    ./ngrok http {PORT}
    ```
-8. You are ready to communicate with widya
+9. You are ready to communicate with widya
 
 ## Message Endpoints
 

@@ -1,6 +1,7 @@
-export const verificationHandler = (res, req) => {
-  const VERIFY_TOKEN = process.env.BOT_VERIFY_TOKEN;
+import { Request, Response } from 'express';
 
+export const  verificationHandler = async (req : Request, res : Response) => {
+  const VERIFY_TOKEN = process.env.BOT_VERIFY_TOKEN;
   const mode = req.query['hub.mode'];
   const token = req.query['hub.verify_token'];
   const challenge = req.query['hub.challenge'];
