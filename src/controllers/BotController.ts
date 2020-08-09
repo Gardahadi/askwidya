@@ -1,4 +1,5 @@
 import { UserController } from "./UserController";
+import { WIDYA_REPLIES } from "../models/payload";
 
 const userController = new UserController();
 
@@ -37,7 +38,7 @@ export class BotController {
   }
 
   async askFirstName(psid) {
-    const response = "Hi! My name is Widya. I don't think we've met before, may I know your first name?";
+    const response = WIDYA_REPLIES[0].payload;
     this.sendMessage(psid, response);
   }
 
@@ -46,7 +47,7 @@ export class BotController {
   }
 
   async askBirthday(psid) {
-    const response = "May I know your birthday?";
+    const response = WIDYA_REPLIES[1].payload;
     this.sendMessage(psid, response);
   }
 
@@ -55,8 +56,7 @@ export class BotController {
   }
 
   async askService(psid) {
-    const response = "Would you like to know when your birthday is";
-
+    const response = WIDYA_REPLIES[2].payload;
     this.sendMessage(psid, response);
   }
 
